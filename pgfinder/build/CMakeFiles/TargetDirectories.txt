@@ -1,0 +1,3 @@
+C:/Users/kavya/OneDrive/Desktop/pgfinder/pgfinder/build/CMakeFiles/server.dir
+C:/Users/kavya/OneDrive/Desktop/pgfinder/pgfinder/build/CMakeFiles/edit_cache.dir
+C:/Users/kavya/OneDrive/Desktop/pgfinder/pgfinder/build/CMakeFiles/rebuild_cache.dir

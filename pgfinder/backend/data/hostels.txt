@@ -1,0 +1,37 @@
+1|1|Sai Krupa Boys PG|Dhankawadi|Male|Veg + Non-Veg|BVCOE=0.8;COEP=8.7;DYP=20.4;MITWPU=10.3;PICT=1.4;VIT=2.6
+2|1|Shree Ganesh Boys Hostel|Dhankawadi|Male|Veg|BVCOE=1.2;COEP=8.5;DYP=21.1;MITWPU=9.3;PICT=1.7;VIT=2.0
+3|1|Anandi Girls PG|Bibwewadi|Female|Veg|BVCOE=1.6;COEP=8.6;DYP=21.5;MITWPU=10.4;PICT=1.0;VIT=1.9
+4|1|Sanskruti Ladies Hostel|Katraj|Female|Veg + Non-Veg|BVCOE=1.3;COEP=8.7;DYP=20.7;MITWPU=10.0;PICT=3.4;VIT=3.6
+5|1|Om Sai Residency|Bibwewadi|Male|Veg + Non-Veg|BVCOE=2.4;COEP=8.5;DYP=20.6;MITWPU=10.4;PICT=1.1;VIT=1.5
+6|1|Balaji Boys Hostel|Kondhwa Budruk|Male|Veg|BVCOE=3.4;COEP=9.0;DYP=21.2;MITWPU=9.6;PICT=3.1;VIT=0.9
+7|2|Rajmata Girls Hostel|Kondhwa Budruk|Female|Veg + Non-Veg|BVCOE=3.6;COEP=8.8;DYP=20.4;MITWPU=10.9;PICT=3.3;VIT=0.7
+8|2|Green Nest PG|Balaji Nagar|Male|Veg + Non-Veg|BVCOE=1.9;COEP=8.9;DYP=21.0;MITWPU=9.3;PICT=1.5;VIT=2.8
+9|2|Vishwas Girls PG|Balaji Nagar|Female|Veg|BVCOE=2.1;COEP=8.7;DYP=20.5;MITWPU=10.1;PICT=1.6;VIT=2.7
+10|2|Campus Comfort Boys PG|Sahakar Nagar|Male|Veg|BVCOE=2.8;COEP=9.6;DYP=21.4;MITWPU=9.7;PICT=1.9;VIT=3.1
+11|2|Tulip Ladies PG|Sahakar Nagar|Female|Veg + Non-Veg|BVCOE=3.2;COEP=8.9;DYP=21.2;MITWPU=9.3;PICT=1.8;VIT=3.3
+12|2|Sunrise Ladies Hostel|Ambegaon|Female|Veg + Non-Veg|BVCOE=2.2;COEP=9.4;DYP=20.3;MITWPU=10.4;PICT=3.9;VIT=5.1
+13|3|Deccan Scholars Boys PG|Deccan Gymkhana|Male|Veg + Non-Veg|BVCOE=8.5;COEP=1.2;DYP=16.3;MITWPU=5.1;PICT=8.0;VIT=8.6
+14|3|FC Road Girls Residency|FC Road|Female|Veg|BVCOE=7.7;COEP=1.0;DYP=15.4;MITWPU=5.7;PICT=7.2;VIT=9.2
+15|3|Shivajinagar Boys Hostel|Shivajinagar|Male|Veg|BVCOE=8.8;COEP=0.5;DYP=14.7;MITWPU=5.5;PICT=8.7;VIT=8.9
+16|3|Model Colony Ladies PG|Model Colony|Female|Veg + Non-Veg|BVCOE=8.4;COEP=0.8;DYP=15.6;MITWPU=4.1;PICT=7.7;VIT=9.7
+17|3|University Road Boys PG|Ganeshkhind Road|Male|Veg + Non-Veg|BVCOE=8.1;COEP=2.3;DYP=15.2;MITWPU=5.5;PICT=7.4;VIT=10.2
+18|3|Sangamwadi Girls Hostel|Sangamwadi|Female|Veg + Non-Veg|BVCOE=8.0;COEP=2.9;DYP=14.7;MITWPU=4.7;PICT=7.6;VIT=10.0
+19|3|Bhosale Nagar Boys PG|Bhosale Nagar|Male|Veg|BVCOE=8.2;COEP=1.9;DYP=16.3;MITWPU=4.5;PICT=7.5;VIT=9.0
+20|3|Bhandarkar Road Ladies PG|Bhandarkar Road|Female|Veg|BVCOE=8.1;COEP=1.7;DYP=15.4;MITWPU=5.8;PICT=8.9;VIT=9.6
+21|4|Kothrud Comfort Boys PG|Kothrud|Male|Veg + Non-Veg|BVCOE=11.1;COEP=4.8;DYP=19.8;MITWPU=0.6;PICT=9.4;VIT=12.7
+22|4|Karve Road Boys Hostel|Karve Road|Male|Veg|BVCOE=11.0;COEP=3.4;DYP=19.3;MITWPU=1.9;PICT=10.4;VIT=12.8
+23|4|Erandwane Girls PG|Erandwane|Female|Veg|BVCOE=10.5;COEP=3.0;DYP=19.4;MITWPU=1.5;PICT=10.6;VIT=12.6
+24|4|Paud Road Ladies Hostel|Paud Road|Female|Veg + Non-Veg|BVCOE=10.1;COEP=4.6;DYP=18.2;MITWPU=0.9;PICT=10.3;VIT=12.3
+25|4|Bhusari Colony Boys PG|Bhusari Colony|Male|Veg + Non-Veg|BVCOE=9.9;COEP=5.0;DYP=19.1;MITWPU=1.2;PICT=10.0;VIT=12.8
+26|4|Kothrud Girls Residency|Kothrud|Female|Veg + Non-Veg|BVCOE=10.3;COEP=5.2;DYP=18.7;MITWPU=0.4;PICT=10.8;VIT=11.5
+27|4|Warje Boys Hostel|Warje|Male|Veg|BVCOE=11.3;COEP=4.9;DYP=18.8;MITWPU=3.1;PICT=10.7;VIT=12.6
+28|4|Karve Nagar Girls PG|Karve Nagar|Female|Veg|BVCOE=10.8;COEP=6.4;DYP=18.6;MITWPU=2.6;PICT=9.6;VIT=12.1
+29|5|Akurdi Boys Hostel|Akurdi|Male|Veg + Non-Veg|BVCOE=20.6;COEP=16.0;DYP=0.7;MITWPU=20.2;PICT=20.8;VIT=23.4
+30|5|Pradhikaran Ladies PG|Nigdi Pradhikaran|Female|Veg|BVCOE=20.7;COEP=15.6;DYP=1.8;MITWPU=19.9;PICT=21.7;VIT=23.0
+31|5|Nigdi Boys PG|Nigdi|Male|Veg|BVCOE=22.0;COEP=15.7;DYP=2.6;MITWPU=19.0;PICT=21.8;VIT=23.3
+32|5|Chinchwad Girls Residency|Chinchwad|Female|Veg + Non-Veg|BVCOE=21.5;COEP=16.0;DYP=2.2;MITWPU=19.6;PICT=20.2;VIT=22.8
+33|5|Ravet Boys PG|Ravet|Male|Veg + Non-Veg|BVCOE=21.0;COEP=16.5;DYP=3.4;MITWPU=20.0;PICT=20.4;VIT=22.9
+34|5|Sai Nagar Girls PG|Ravet|Female|Veg + Non-Veg|BVCOE=22.2;COEP=17.2;DYP=3.1;MITWPU=19.9;PICT=21.9;VIT=23.8
+35|5|Yamunanagar Boys Hostel|Yamunanagar|Male|Veg|BVCOE=21.2;COEP=17.0;DYP=1.5;MITWPU=20.0;PICT=20.3;VIT=23.4
+36|5|Tukaram Nagar Ladies PG|Chinchwad|Female|Veg|BVCOE=22.3;COEP=16.1;DYP=1.3;MITWPU=19.7;PICT=20.6;VIT=23.4
+37|6|Nivara hostel|shree ram nagar|Male|Veg + Non-Veg|BVCOE=1.5;COEP=3.0;DYP=7.0;MITWPU=2.0;PICT=1.5;VIT=10.0
