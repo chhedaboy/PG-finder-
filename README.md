@@ -1,9 +1,10 @@
 # PG Finder Pune - C++ OOP Project
-👥 Team Members
-Rashi Nema
-Harsh Sinha
-Kavya Chheda
-Shauryadeep Srivastava
+## 👥 Team Members
+
+1. **Rashi Nema**
+2. **Harsh Sinha**
+3. **Kavya Chheda**
+4. **Shauryadeep Srivastava**
 
 A website where students find and book a PG/Hostel near their college in Pune, and owners manage hostels.
 **All logic is in C++** (recommendation, filtering, scoring, sorting, booking, file handling, HTTP server).
