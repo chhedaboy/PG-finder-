@@ -8,6 +8,10 @@ WORKDIR /app
 
 COPY . .
 
+# Remove the local Windows build folder/cache
+RUN rm -rf build
+
+# Build fresh inside Render
 RUN cmake -S . -B build && \
     cmake --build build
 
