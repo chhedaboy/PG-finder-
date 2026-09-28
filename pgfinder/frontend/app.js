@@ -39,9 +39,9 @@ async function api(path, params, method) {
   try {
     let res;
     if (method === 'GET') {
-      res = await fetch('/api/' + path + (qs ? '?' + qs : ''));
+      res = await fetch('https://pg-finder-ej1d.onrender.com/api/' + path + (qs ? '?' + qs : ''));
     } else {
-      res = await fetch('/api/' + path, {
+      res = await fetch('https://pg-finder-ej1d.onrender.com/api/' + path, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: qs
