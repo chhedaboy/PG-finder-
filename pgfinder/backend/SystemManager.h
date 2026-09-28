@@ -28,6 +28,7 @@ public:
 
     // ---- hostels ----
     const std::vector<Hostel>& getHostels() const;
+    const std::vector<Booking>& getBookings() const;
     Hostel* findHostel(int id);
     int addHostel(int ownerId, const std::string& name, const std::string& location,
                   const std::string& gender, const std::string& food,
@@ -42,6 +43,6 @@ public:
 
     // ---- booking ----
     bool bookBed(int hostelId, int roomId, int bedId, const std::string& studentName,
-                 const std::string& gender, const std::string& college,
+                 const std::string& gender, const std::string& college, const std::string& contact,
                  Booking& confirmation, std::string& error);
 };

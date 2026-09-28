@@ -72,13 +72,15 @@ void SystemManager::load() {
             h->addRoom(Room(roomId, sharing, ac == 1, rent, f[5]));
     }
 
-    // bookings.txt: id|studentId|studentName|college|hostelId|hostelName|roomId|bedId|rent|time
+    // Older booking rows may not have the appended gender and contact fields.
     for (const std::string& line : readLines("bookings.txt")) {
         std::vector<std::string> f = splitStr(line, '|');
         int id, sid, hid, rid, bid, rent;
         if (f.size() < 10 || !parseInt(f[0], id) || !parseInt(f[1], sid) || !parseInt(f[4], hid) ||
             !parseInt(f[6], rid) || !parseInt(f[7], bid) || !parseInt(f[8], rent)) continue;
-        bookings.push_back(Booking(id, sid, f[2], f[3], hid, f[5], rid, bid, rent, f[9]));
+        const std::string gender = f.size() > 10 ? f[10] : "";
+        const std::string contact = f.size() > 11 ? f[11] : "";
+        bookings.push_back(Booking(id, sid, f[2], f[3], hid, f[5], rid, bid, rent, f[9], gender, contact));
         if (id >= nextBookingId) nextBookingId = id + 1;
     }
 }
@@ -110,6 +112,7 @@ void SystemManager::saveAll() {
 // ---- hostels ------------------------------------------------------------
 
 const std::vector<Hostel>& SystemManager::getHostels() const { return hostels; }
+const std::vector<Booking>& SystemManager::getBookings() const { return bookings; }
 
 Hostel* SystemManager::findHostel(int id) {
     for (Hostel& h : hostels)
@@ -167,6 +170,7 @@ Student& SystemManager::registerStudent(const std::string& name, const std::stri
 
 bool SystemManager::bookBed(int hostelId, int roomId, int bedId, const std::string& studentName,
                             const std::string& gender, const std::string& college,
+                            const std::string& contact,
                             Booking& confirmation, std::string& error) {
     Hostel* h = findHostel(hostelId);
     if (h == nullptr) { error = "Hostel not found (it may have been removed)."; return false; }
@@ -179,7 +183,7 @@ bool SystemManager::bookBed(int hostelId, int roomId, int bedId, const std::stri
 
     Student& s = registerStudent(studentName, gender, college);
     Booking b(nextBookingId++, s.getId(), studentName, college, hostelId, h->getName(),
-              roomId, bedId, r->getRent(), currentTimeString());
+              roomId, bedId, r->getRent(), currentTimeString(), gender, contact);
     bookings.push_back(b);
     saveAll();
 

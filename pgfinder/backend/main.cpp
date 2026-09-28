@@ -1,5 +1,6 @@
 // main.cpp - starts the server and routes each request to the right C++ class.
 // The website (HTML/CSS/JS) only calls these routes; all logic is done here in C++.
+#include <cctype>
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -36,6 +37,23 @@ static bool fileExists(const std::string& path) {
 }
 
 static bool validGender(const std::string& g) { return g == "Male" || g == "Female"; }
+
+static bool validContact(const std::string& contact) {
+    size_t at = contact.find('@');
+    if (at != std::string::npos) {
+        size_t dot = contact.find('.', at + 1);
+        return at > 0 && contact.find('@', at + 1) == std::string::npos &&
+               dot != std::string::npos && dot + 1 < contact.size() &&
+               contact.find_first_of(" \t\r\n") == std::string::npos;
+    }
+
+    int digits = 0;
+    for (unsigned char c : contact) {
+        if (std::isdigit(c)) digits++;
+        else if (c != '+' && c != '-' && c != '(' && c != ')' && c != ' ') return false;
+    }
+    return digits >= 7 && digits <= 15;
+}
 
 // ---- student side ---------------------------------------------------------------
 
@@ -102,13 +120,15 @@ static HttpResponse handleBook(const HttpRequest& req) {
     std::string name = cleanField(param(req, "name"));
     std::string gender = param(req, "gender");
     std::string college = param(req, "college");
+    std::string contact = cleanField(param(req, "contact"));
     if (name.empty()) return errorReply("Please enter your name.");
     if (!validGender(gender)) return errorReply("Please select your gender.");
     if (findCollege(college) == nullptr) return errorReply("Please select your college.");
+    if (!validContact(contact)) return errorReply("Please enter a valid phone number or email address.");
 
     Booking confirmation(0, 0, "", "", 0, "", 0, 0, 0, "");
     std::string error;
-    if (!manager->bookBed(hostelId, roomId, bedId, name, gender, college, confirmation, error))
+    if (!manager->bookBed(hostelId, roomId, bedId, name, gender, college, contact, confirmation, error))
         return errorReply(error);
     return jsonReply("{\"ok\":true,\"booking\":" + confirmation.toJson() + "}");
 }
@@ -150,7 +170,18 @@ static HttpResponse handleOwnerHostels(const HttpRequest& req) {
     for (const Hostel& h : manager->getHostels()) {
         if (h.getOwnerId() != owner->getId()) continue;
         if (!first) j += ",";
-        j += h.toJson();
+        std::string hostelJson = h.toJson();
+        hostelJson.erase(hostelJson.size() - 1);
+        hostelJson += ",\"bookings\":[";
+        bool firstBooking = true;
+        for (const Booking& booking : manager->getBookings()) {
+            if (booking.getHostelId() != h.getId()) continue;
+            if (!firstBooking) hostelJson += ",";
+            hostelJson += booking.toJson();
+            firstBooking = false;
+        }
+        hostelJson += "]}";
+        j += hostelJson;
         first = false;
     }
     return jsonReply(j + "]}");

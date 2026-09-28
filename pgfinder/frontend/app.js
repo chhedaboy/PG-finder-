@@ -211,6 +211,7 @@ function drawHostel() {
               <option value="Male" ${s && s.gender === 'Male' ? 'selected' : ''}>Male</option>
               <option value="Female" ${s && s.gender === 'Female' ? 'selected' : ''}>Female</option></select></div>
             <div><label>College *</label><select name="college" required>${collegeOptions(s ? s.college : '')}</select></div>
+            <div><label>Phone number or email *</label><input name="contact" type="text" autocomplete="off" placeholder="e.g. +91 98765 43210 or name@example.com" required></div>
           </div>
           <div class="form-actions"><button class="btn" type="submit">Confirm Booking</button></div>
         </form>
@@ -257,6 +258,8 @@ function viewBooked() {
       <div class="details">
         <div><span>Booking ID</span><b>#${b.id}</b></div>
         <div><span>Student</span><b>${esc(b.studentName)}</b></div>
+        <div><span>Gender</span><b>${esc(b.gender || 'Not provided')}</b></div>
+        <div><span>Contact</span><b>${esc(b.contact)}</b></div>
         <div><span>College</span><b>${esc(collegeName(b.college))}</b></div>
         <div><span>Hostel</span><b>${esc(b.hostelName)}</b></div>
         <div><span>Room / Bed</span><b>Room ${b.roomId}, Bed ${b.bedId}</b></div>
@@ -338,6 +341,21 @@ function drawOwner() {
 
 function ownerHostelCard(h) {
   const open = state.openHostel === h.id;
+  const bookings = h.bookings || [];
+  const bookingList = bookings.length ? `
+    <section class="booking-list">
+      <h4>Confirmed bookings (${bookings.length})</h4>
+      ${bookings.map(b => `
+        <div class="booking-item">
+          <div><span>Student</span><b>${esc(b.studentName)}</b></div>
+          <div><span>Contact</span><b>${esc(b.contact || 'Not provided')}</b></div>
+          <div><span>Gender</span><b>${esc(b.gender || 'Not provided')}</b></div>
+          <div><span>College</span><b>${esc(collegeName(b.college))}</b></div>
+          <div><span>Room / Bed</span><b>Room ${b.roomId}, Bed ${b.bedId}</b></div>
+          <div><span>Monthly rent</span><b>${rupee(b.rent)}</b></div>
+          <div><span>Booked on</span><b>${esc(b.time)}</b></div>
+        </div>`).join('')}
+    </section>` : '<p class="muted small booking-empty">No confirmed bookings yet.</p>';
   return `
     <div class="panel owner-hostel">
       <div class="owner-hostel-head">
@@ -349,6 +367,7 @@ function ownerHostelCard(h) {
         </div>
       </div>
       ${h.availableBeds === 0 ? '<p class="muted small">Not shown in student search until a room has an available bed.</p>' : ''}
+      ${bookingList}
       ${open ? manageHtml(h) : ''}
     </div>`;
 }

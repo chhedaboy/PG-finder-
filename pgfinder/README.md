@@ -32,8 +32,8 @@ Then open **http://localhost:8080** in your browser. Use another port with `./se
 
 ## How to use
 
-- **Student:** Find a Hostel -> fill the form -> Search -> View & Book -> choose sharing type -> tap a green bed -> Confirm.
-- **Owner:** Hostel Owner -> log in with a name (sample owner: **Rajesh Patil**; a new name registers a new owner) -> Add / Manage / Remove hostels, add rooms, set rent, AC, gender, food and available beds.
+- **Student:** Find a Hostel -> fill the form -> Search -> View & Book -> choose sharing type -> tap a green bed -> Confirm with a phone number or email address.
+- **Owner:** Hostel Owner -> log in with a name (sample owner: **Rajesh Patil**; a new name registers a new owner) -> view confirmed booking details and student contact info, or add / manage / remove hostels and rooms.
 
 Sample data: 36 hostels, 6 colleges, 8 rooms per hostel. Hostels near Bharati Vidyapeeth, PICT and VIT are shared
 (same hostel, different distance per college). All names and numbers are made-up project data.
@@ -83,7 +83,7 @@ frontend/                  index.html, style.css, app.js
 | GET `/api/colleges` | list of colleges |
 | GET `/api/search` | recommendations (name, college, gender, budget, maxDist, food, sharing, ac) |
 | GET `/api/hostel` | hostel details with rooms and beds |
-| POST `/api/book` | book a bed |
+| POST `/api/book` | book a bed with student contact details |
 | POST `/api/owner/login` | owner login / register |
 | GET `/api/owner/hostels` | owner's hostels |
 | POST `/api/owner/hostel/add`, `/update`, `/remove` | manage hostels |
