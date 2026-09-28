@@ -1,15 +1,12 @@
 FROM ubuntu:24.04
 
 RUN apt-get update && \
-    apt-get install -y g++ cmake && \
+    apt-get install -y --no-install-recommends build-essential cmake && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
 COPY . .
-
-# Remove the local Windows build folder/cache
-RUN rm -rf build
 
 # Build fresh inside Render
 RUN cmake -S . -B build && \
