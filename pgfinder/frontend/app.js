@@ -300,6 +300,9 @@ async function loadOwnerHostels() {
 
 function hostelFields(h) {
   h = h || { name: '', location: '', gender: 'Male', food: 'Veg', distances: {} };
+  const closest = Object.entries(h.distances || {}).sort((a, b) => Number(a[1]) - Number(b[1]))[0];
+  const nearCollege = closest ? closest[0] : '';
+  const nearDistance = closest ? closest[1] : '';
   return `
     <div class="form-grid">
       <div><label>Hostel name</label><input name="name" value="${esc(h.name)}" required></div>
@@ -309,10 +312,9 @@ function hostelFields(h) {
       <div><label>Food type</label><select name="food">
         <option ${h.food === 'Veg' ? 'selected' : ''}>Veg</option><option ${h.food === 'Veg + Non-Veg' ? 'selected' : ''}>Veg + Non-Veg</option></select></div>
     </div>
-    <p style="margin:1rem 0 .4rem"><b>Distance (km) from each college</b></p>
-    <div class="form-grid">${state.colleges.map(c => `
-      <div><label>${esc(c.name)}</label>
-      <input type="number" step="0.1" min="0.1" name="d_${esc(c.id)}" value="${h.distances[c.id] !== undefined ? h.distances[c.id] : ''}" required></div>`).join('')}
+    <div class="form-grid" style="margin-top:1rem">
+      <div><label>Nearest college *</label><select name="nearCollege" required>${collegeOptions(nearCollege)}</select></div>
+      <div><label>Distance from this college (km) *</label><input type="number" step="0.1" min="0.1" max="100" name="nearDistance" value="${nearDistance}" required></div>
     </div>`;
 }
 

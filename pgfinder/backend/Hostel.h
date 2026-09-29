@@ -22,6 +22,7 @@ public:
 
     // distances
     void setDistance(const std::string& collegeId, double km);
+    void clearDistances();
     bool distanceTo(const std::string& collegeId, double& km) const;
     const std::map<std::string, double>& getDistances() const;
 

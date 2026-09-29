@@ -48,7 +48,7 @@ backend/
   Person.h/.cpp            abstract base class  -> Student, Owner
   Student.h/.cpp, Owner.h/.cpp
   Accommodation.h/.cpp     abstract base class  -> Hostel
-  Hostel.h/.cpp            hostel (distance per college, list of rooms)
+  Hostel.h/.cpp            hostel (nearest college and distance, list of rooms)
   Room.h/.cpp, Bed.h/.cpp  room (1/2/3 sharing) and its beds
   Booking.h/.cpp           booking confirmation
   RecommendationEngine.h/.cpp   filter + score + sort
@@ -65,7 +65,7 @@ frontend/                  index.html, style.css, app.js
 - **Abstraction:** `Accommodation` and `Person` are abstract (pure virtual functions).
 - **Inheritance:** `Hostel` extends `Accommodation`; `Student` and `Owner` extend `Person`.
 - **Polymorphism:** `getRole()`, `toRecord()`, `checkAvailability()` are virtual and overridden in the child classes.
-- **STL:** `vector` (hostels, rooms, beds), `map` (distance per college), `sort` (nearest first), `string`.
+- **STL:** `vector` (hostels, rooms, beds), `map` (selected college distance), `sort` (nearest first), `string`.
 - **File handling:** `ifstream` / `ofstream` in `SystemManager` (pipe-separated text files).
 
 ## Recommendation logic (simple rules)

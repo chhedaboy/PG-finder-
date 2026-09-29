@@ -10,6 +10,7 @@ int Hostel::getId() const { return id; }
 int Hostel::getOwnerId() const { return ownerId; }
 
 void Hostel::setDistance(const std::string& collegeId, double km) { distances[collegeId] = km; }
+void Hostel::clearDistances() { distances.clear(); }
 
 bool Hostel::distanceTo(const std::string& collegeId, double& km) const {
     auto it = distances.find(collegeId);

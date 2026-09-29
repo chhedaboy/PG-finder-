@@ -1,6 +1,7 @@
 // main.cpp - starts the server and routes each request to the right C++ class.
 // The website (HTML/CSS/JS) only calls these routes; all logic is done here in C++.
 #include <cctype>
+#include <cmath>
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -187,7 +188,7 @@ static HttpResponse handleOwnerHostels(const HttpRequest& req) {
     return jsonReply(j + "]}");
 }
 
-// Reads and checks name, location, gender, food and one distance per college
+// Reads and checks hostel details plus its nearest college and distance.
 static bool readHostelFields(const HttpRequest& req, std::string& name, std::string& location,
                              std::string& gender, std::string& food,
                              std::map<std::string, double>& distances, std::string& error) {
@@ -200,14 +201,15 @@ static bool readHostelFields(const HttpRequest& req, std::string& name, std::str
     if (!validGender(gender)) { error = "Please select Male or Female."; return false; }
     if (food != FOOD_VEG && food != FOOD_BOTH) { error = "Please select the food type."; return false; }
 
-    for (const College& c : allColleges()) {
-        double km;
-        if (!parseDouble(param(req, "d_" + c.id), km) || km <= 0 || km > 100) {
-            error = "Please enter a valid distance (km) from " + c.name + ".";
-            return false;
-        }
-        distances[c.id] = km;
+    const std::string collegeId = param(req, "nearCollege");
+    const College* college = findCollege(collegeId);
+    double km;
+    if (college == nullptr) { error = "Please select the nearest college."; return false; }
+    if (!parseDouble(param(req, "nearDistance"), km) || !std::isfinite(km) || km <= 0 || km > 100) {
+        error = "Please enter a valid distance (km) from " + college->name + ".";
+        return false;
     }
+    distances[collegeId] = km;
     return true;
 }
 
@@ -237,6 +239,7 @@ static HttpResponse handleUpdateHostel(const HttpRequest& req) {
     h->setLocation(location);
     h->setGender(gender);
     h->setFood(food);
+    h->clearDistances();
     for (const auto& kv : distances) h->setDistance(kv.first, kv.second);
     manager->saveAll();
     return jsonReply("{\"ok\":true}");
